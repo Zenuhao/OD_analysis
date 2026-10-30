@@ -154,7 +154,10 @@ def make_figs(x, y, y_names, a, b, r_squared, mask, output_dir=OUTPUT_DIR, show_
         fig.tight_layout()
         filename = f"fitting_{name}.png"
         fig.savefig(output_dir / filename, dpi=300, bbox_inches="tight")
-        plt.close()
+
+    if show_plot:
+        plt.show()
+    plt.close()
 
 def main() -> None:
     excel_file = Path(sys.argv[1] if len(sys.argv) > 1 else DEFAULT_EXCEL_FILE)
